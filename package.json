@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "npx ts-node"
+    "solution:path": "find $PWD/src -type d -name \"*$ID*\"",
+    "start": "npx ts-node \"$(npm run -s solution:path)\"/solve.ts"
   },
   "devDependencies": {
     "@types/node": "^22.13.4",
