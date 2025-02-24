@@ -6,6 +6,6 @@ function isSubsequence(s: string, t: string): boolean {
   return counter == s.length;
 }
 
-const s = "axc",
-  t = "ahbgdc";
-console.log(isSubsequence(s, t));
+// const s = "axc",
+//   t = "ahbgdc";
+// console.log(isSubsequence(s, t));
