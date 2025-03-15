@@ -10,6 +10,8 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "moduleDetection": "force"
+    "moduleDetection": "force",
+    "target": "ES2020",
+    "moduleResolution": "node"
   }
 }
