@@ -29,6 +29,14 @@ Example:
 └── README.md
 ```
 
+Or you can use this command to auto generate folder
+
+Example:
+
+```
+NAME="2698. Find the Punishment Number of an Integer" npm run gen
+```
+
 ## Usage
 
 ### Running a Solution
