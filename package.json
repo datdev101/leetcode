@@ -2,6 +2,7 @@
   "scripts": {
     "solution:path": "find $PWD/src -type d -name \"$ID.*\"",
     "start": "npx ts-node \"$(npm run -s solution:path)\"/solve.ts",
+    "start:java": "java -ea \"$(npm run -s solution:path)\"/solve.java",
     "gen": "cp -r template \"src/${NAME}\""
   },
   "devDependencies": {
