@@ -1,33 +1,30 @@
 # [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/description/?envType=study-plan-v2&envId=top-interview-150)
 
-Given a string `s`, find the length of the **longest**  <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rp:" data-state="closed" class="">**substring** </button> without duplicate characters.
+Given an integer array `nums` and an integer `k`, return `true` if there are two **distinct indices**  `i` and `j` in the array such that `nums[i] == nums[j]` and `abs(i - j) <= k`.
 
 **Example 1:** 
 
 ```
-Input: s = "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3.
+Input: nums = [1,2,3,1], k = 3
+Output: true
 ```
 
 **Example 2:** 
 
 ```
-Input: s = "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
+Input: nums = [1,0,1,1], k = 1
+Output: true
 ```
 
 **Example 3:** 
 
 ```
-Input: s = "pwwkew"
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
 ```
 
 **Constraints:** 
 
-- `0 <= s.length <= 5 * 10^4`
-- `s` consists of English letters, digits, symbols and spaces.
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `0 <= k <= 10^5`
