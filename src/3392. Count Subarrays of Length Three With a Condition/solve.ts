@@ -1,6 +1,5 @@
 import { checkTestcases } from "../_utils/helper";
 
-
 function countSubarrays(nums: number[]): number {
   let result = 0;
 
@@ -15,11 +14,11 @@ function countSubarrays(nums: number[]): number {
 checkTestcases(
   [
     {
-      input: [1, 2, 1, 4, 1],
+      input: [[1, 2, 1, 4, 1]],
       expected: 1,
     },
     {
-      input: [1, 1, 1],
+      input: [[1, 1, 1]],
       expected: 0,
     },
   ],

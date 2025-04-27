@@ -1,3 +1,5 @@
+import { checkTestcases } from "../_utils/helper";
+
 function summaryRanges(nums: number[]): string[] {
   if (nums.length == 0) return [];
 
@@ -15,29 +17,17 @@ function summaryRanges(nums: number[]): string[] {
   return result;
 }
 
-function checkTestcases(
-  dto: {
-    input: number[];
-    expected: string[];
-  }[]
-) {
-  for (let i = 0; i < dto.length; i++) {
-    const testcase = dto[i];
-    const result =
-      JSON.stringify(testcase.expected) ===
-      JSON.stringify(summaryRanges(testcase.input));
-    if (!result) throw new Error(`Test ${i + 1} fail`);
-  }
-  console.log("All test passed");
-}
-
-checkTestcases([
-  {
-    input: [0, 1, 2, 4, 5, 7],
-    expected: ["0->2", "4->5", "7"],
-  },
-  {
-    input: [0, 2, 3, 4, 6, 8, 9],
-    expected: ["0", "2->4", "6", "8->9"],
-  },
-]);
+checkTestcases(
+  [
+    {
+      input: [[0, 1, 2, 4, 5, 7]],
+      expected: ["0->2", "4->5", "7"],
+    },
+    {
+      input: [[0, 2, 3, 4, 6, 8, 9]],
+      expected: ["0", "2->4", "6", "8->9"],
+    },
+  ],
+  summaryRanges,
+  (a, b) => JSON.stringify(a) === JSON.stringify(b)
+);

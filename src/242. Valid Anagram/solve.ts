@@ -1,3 +1,5 @@
+import { checkTestcases } from "../_utils/helper";
+
 function isAnagram(s: string, t: string): boolean {
   if (s.length !== t.length) return false;
 
@@ -19,37 +21,16 @@ function isAnagram(s: string, t: string): boolean {
   return mapper.size == 0;
 }
 
-function checkTestcases(
-  dto: {
-    input: {
-      s: string;
-      t: string;
-    };
-    expected: boolean;
-  }[]
-) {
-  for (let i = 0; i < dto.length; i++) {
-    const testcase = dto[i];
-    const result =
-      testcase.expected === isAnagram(testcase.input.s, testcase.input.t);
-    if (!result) throw new Error(`Test ${i + 1} fail`);
-  }
-  console.log("All test passed");
-}
-
-checkTestcases([
-  {
-    input: {
-      s: "anagram",
-      t: "nagaram",
+checkTestcases(
+  [
+    {
+      input: ["anagram", "nagaram"],
+      expected: true,
     },
-    expected: true,
-  },
-  {
-    input: {
-      s: "rat",
-      t: "car",
+    {
+      input: ["rat", "car"],
+      expected: false,
     },
-    expected: false,
-  },
-]);
+  ],
+  isAnagram
+);

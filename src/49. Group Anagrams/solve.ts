@@ -1,3 +1,5 @@
+import { checkTestcases } from "../_utils/helper";
+
 function hashStr(str: string) {
   const aCode = "a".charCodeAt(0);
   const zCode = "z".charCodeAt(0);
@@ -19,46 +21,25 @@ function groupAnagrams(strs: string[]): string[][] {
   return Array.from(groupMap.values());
 }
 
-function test() {
-  function formatArr(strs: string[][]) {
-    return JSON.stringify(strs.flat().sort());
-  }
-
-  function checkTestcases(
-    dto: {
-      input: string[];
-      expected: string[][];
-    }[]
-  ) {
-    for (let i = 0; i < dto.length; i++) {
-      const testcase = dto[i];
-      const result =
-        formatArr(testcase.expected) ===
-        formatArr(groupAnagrams(testcase.input));
-      if (!result) throw new Error(`Test ${i + 1} fail`);
-    }
-
-    console.log("All test passed");
-  }
-
-  checkTestcases([
+checkTestcases(
+  [
     {
-      input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+      input: [["eat", "tea", "tan", "ate", "nat", "bat"]],
       expected: [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]],
     },
     {
-      input: [""],
+      input: [[""]],
       expected: [[""]],
     },
     {
-      input: ["a"],
+      input: [["a"]],
       expected: [["a"]],
     },
     {
-      input: ["ddddddddddg", "dgggggggggg"],
+      input: [["ddddddddddg", "dgggggggggg"]],
       expected: [["dgggggggggg"], ["ddddddddddg"]],
     },
-  ]);
-}
-
-test();
+  ],
+  groupAnagrams,
+  (a, b) => JSON.stringify(a.flat().sort()) === JSON.stringify(b.flat().sort())
+);

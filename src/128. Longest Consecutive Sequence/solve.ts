@@ -1,3 +1,5 @@
+import { checkTestcases } from "../_utils/helper";
+
 function longestConsecutive(nums: number[]): number {
   const UNVISITED = -1;
   const mapper = new Map<number, number>();
@@ -34,31 +36,20 @@ function longestConsecutive(nums: number[]): number {
   return maxLength;
 }
 
-function checkTestcases(
-  dto: {
-    input: number[];
-    expected: number;
-  }[]
-) {
-  for (let i = 0; i < dto.length; i++) {
-    const testcase = dto[i];
-    const result = testcase.expected === longestConsecutive(testcase.input);
-    if (!result) throw new Error(`Test ${i + 1} fail`);
-  }
-  console.log("All test passed");
-}
-
-checkTestcases([
-  {
-    input: [100, 4, 200, 1, 3, 2],
-    expected: 4,
-  },
-  {
-    input: [0, 3, 7, 2, 5, 8, 4, 6, 0, 1],
-    expected: 9,
-  },
-  {
-    input: [1, 0, 1, 2],
-    expected: 3,
-  },
-]);
+checkTestcases(
+  [
+    {
+      input: [[100, 4, 200, 1, 3, 2]],
+      expected: 4,
+    },
+    {
+      input: [[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]],
+      expected: 9,
+    },
+    {
+      input: [[1, 0, 1, 2]],
+      expected: 3,
+    },
+  ],
+  longestConsecutive
+);
